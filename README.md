@@ -1,8 +1,23 @@
 # cisecurity_audit_ubuntu24_EC2
 
-A hands on demonstration of executing a CISecurity Benchmark for Ubuntu 24 on an AWS EC2 host
-_Assumptions - you have a valid AWS account (free tier available), and an Ubuntu Pro subscription (free for 5 hosts)_
+A hands on demonstration of executing a CISecurity Benchmark for Ubuntu 24 on an Brand New AWS EC2 host
 
+Purpose:  To prove out assessment benchmarks tools and identify vulnerabilities/weaknesses in hosts deployed in a default fashion.
+
+_Assumptions - you have a valid AWS account (free tier available), and an Ubuntu Pro subscription (free for 5 hosts)_
+1.  Create the EC2 Instance 
+2.  Login to the EC2 instance via SSH
+3.  Execute the commands to add the correct repositories
+4.  Update the system connections and attach Ubuntu pro as needed
+5.  Run the command to perform the assesment
+6.  SCP the report back to local workstation
+7.  Access the report and view the content
+
+https://ubuntu.com/security/certifications/docs/usg/cis/audit <br>
+https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final
+
+
+---------------------------------------------------------------------------------------------
 
 1.  Create the EC2 Instance (and keypair if necessary for access)
 https://aws.amazon.com/free/compute/
@@ -13,9 +28,9 @@ https://aws.amazon.com/free/compute/
 
 <img width="999" height="942" alt="Screenshot 2025-07-11 at 4 41 07 PM" src="https://github.com/user-attachments/assets/fb1a2efa-314b-45fc-8cf4-18b6ba601af6" />
 
+<br><br>
 
-
-3.  Login to the EC2 instance via SSH
+2.  Login to the EC2 instance via SSH
    
 <img width="1051" height="604" alt="image" src="https://github.com/user-attachments/assets/58dcb19a-ec65-476a-993a-04a5e9e19bf9" />
 
@@ -23,13 +38,13 @@ https://aws.amazon.com/free/compute/
 <img width="833" height="602" alt="image" src="https://github.com/user-attachments/assets/7494a13d-8de5-4d44-afd3-3caa0c00f211" />
 
 
-
+<br><br>
 3.  Execute the commands to add the correct repositories
 
 
 <img width="623" height="199" alt="image" src="https://github.com/user-attachments/assets/b7ad8827-aefa-4c4b-a258-20250b4504dc" />
 
-
+<br><br>
 4.  Update the system connections and attach Ubuntu pro as needed
 
 <img width="2682" height="1490" alt="image" src="https://github.com/user-attachments/assets/8b6a82f0-d564-437c-a191-204e4d0378d2" />
@@ -38,7 +53,7 @@ https://aws.amazon.com/free/compute/
 
 <img width="499" height="113" alt="image" src="https://github.com/user-attachments/assets/cb5de8e0-daff-4b18-9486-d977a371b378" />
 
-
+<br><br>
 5.  Run the command to perform the assesment
 
 
