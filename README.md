@@ -2,7 +2,7 @@
 
 A hands on demonstration of executing a CISecurity Benchmark for Ubuntu 24 on an Brand New AWS EC2 host
 
-Purpose:  To prove out assessment benchmarks tools and identify vulnerabilities/weaknesses in hosts deployed in a default fashion.
+Purpose:  To prove out assessment benchmark tools and identify vulnerabilities/weaknesses in hosts deployed in a default fashion.
 
 _Assumptions - you have a valid AWS account (free tier available), and an Ubuntu Pro subscription (free for 5 hosts)_
 1.  Create the EC2 Instance 
