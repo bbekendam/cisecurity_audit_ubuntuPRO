@@ -1,13 +1,16 @@
 # cisecurity_audit_ubuntu24_EC2
-
+-----
 A hands on demonstration of executing a CISecurity Benchmark for Ubuntu 24 on an Brand New AWS EC2 host
 
 Purpose:  To prove out assessment benchmark tools and identify vulnerabilities/weaknesses in hosts deployed in a default fashion.
 
-<img width="790" height="607" alt="CISecurity Architecture" src="https://github.com/user-attachments/assets/1e911434-4522-48ad-b4a4-0345d10be4ad" />
+<img width="759" height="510" alt="image" src="https://github.com/user-attachments/assets/19730e92-d70c-4220-a907-22eeb1afb7e1" />
+
 
 
 _Assumptions - you have a valid AWS account (free tier available), and an Ubuntu Pro subscription (free for 5 hosts)_
+
+Overview
 1.  Create the EC2 Instance 
 2.  Login to the EC2 instance via SSH
 3.  Execute the commands to add the correct repositories
