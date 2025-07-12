@@ -12,6 +12,7 @@ _Assumptions - you have a valid AWS account (free tier available), and an Ubuntu
 5.  Run the command to perform the assesment
 6.  SCP the report back to local workstation
 7.  Access the report and view the content
+8.  Prompt and Use ChatGPT for Augmented Analysis with Remediation Guidance/Scripts
 
 https://ubuntu.com/security/certifications/docs/usg/cis/audit <br>
 https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final
@@ -99,7 +100,63 @@ Report Pivots to NIST 800-53 Compliance
 https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final
 
 <img width="912" height="1008" alt="image" src="https://github.com/user-attachments/assets/256236c9-47a5-4e13-9f12-b2a3b31d6321" />
-
+<br>
 XML and HTML files available
+<br>
+
+8.  Prompt and Use ChatGPT for Augmented Analysis with Remediation Guidance/Scripts
+<br>
+<br>
+
+<img width="662" height="785" alt="image" src="https://github.com/user-attachments/assets/751fda24-a419-4f56-9cdb-a061b545c051" />
+<br>
+<img width="703" height="854" alt="image" src="https://github.com/user-attachments/assets/4c3298a7-7698-4c5c-8ebb-344d3ee6ba8f" />
+<br>
+<img width="766" height="834" alt="image" src="https://github.com/user-attachments/assets/e76694ad-5bf1-44ae-ba25-9249e70890ee" />
+<br>
+<img width="732" height="244" alt="image" src="https://github.com/user-attachments/assets/daf0dab4-7e24-4eae-ad35-71c99b53c25b" />
+<br>
+
+```
+#!/bin/bash
+
+echo "Starting CIS High Severity Remediation..."
+
+# 1. Disable empty password logins
+echo "Disabling login for accounts with empty passwords..."
+passwd -l $(awk -F: '($2==""){print $1}' /etc/shadow)
+
+# 2. Configure pam_faillock
+echo "Configuring pam_faillock for failed login attempts..."
+
+# Backup PAM config
+cp /etc/pam.d/common-auth /etc/pam.d/common-auth.bak_$(date +%F-%T)
+cp /etc/security/faillock.conf /etc/security/faillock.conf.bak_$(date +%F-%T) 2>/dev/null
+
+# Append faillock config if not present
+if ! grep -q "auth required pam_faillock.so preauth audit silent deny=5 unlock_time=900" /etc/pam.d/common-auth; then
+  sed -i '/^auth.*pam_unix.so/a auth required pam_faillock.so preauth audit silent deny=5 unlock_time=900' /etc/pam.d/common-auth
+fi
+
+if ! grep -q "auth \[default=die\] pam_faillock.so authfail audit deny=5 unlock_time=900" /etc/pam.d/common-auth; then
+  sed -i '/^auth.*pam_unix.so/a auth [default=die] pam_faillock.so authfail audit deny=5 unlock_time=900' /etc/pam.d/common-auth
+fi
+
+if ! grep -q "account required pam_faillock.so" /etc/pam.d/common-auth; then
+  sed -i '/^account.*pam_unix.so/a account required pam_faillock.so' /etc/pam.d/common-auth
+fi
+
+# 3. Ensure system accounts do not use /bin/sh (Commented; audit first)
+# echo "Checking system accounts for /bin/sh shell (this is a placeholder)..."
+# awk -F: '($3 < 1000 && $7 == "/bin/sh") {print $1 " is using /bin/sh"}' /etc/passwd
+
+echo "CIS High Severity Remediation Complete."
+```
+
+
+<br><br>
+
+<img width="490" height="184" alt="image" src="https://github.com/user-attachments/assets/d0cfc7d7-37eb-4fcc-81e0-00845257ea23" />
+
 
 
