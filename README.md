@@ -2,7 +2,10 @@
 -----
 A hands on demonstration of executing a CISecurity Benchmark for Ubuntu 24 on an Brand New AWS EC2 host
 
-Purpose:  To prove out assessment benchmark tools and identify vulnerabilities/weaknesses in hosts deployed in a default fashion.
+Purpose:  To prove out assessment benchmark tools, identify vulnerabilities/weaknesses in hosts deployed in a default fashion by AWS/Vendor, use ChatGPT analysis to summarize the hygiene of the host and explore what AI recommends as "fixes".<br><br>
+
+***Disclaimer -- In a production or corporate environment, we would NEVER upload non-public information to ChatGPT. (IP Address, User Info, Metadata, etc)***
+
 
 <img width="759" height="510" alt="image" src="https://github.com/user-attachments/assets/19730e92-d70c-4220-a907-22eeb1afb7e1" />
 
